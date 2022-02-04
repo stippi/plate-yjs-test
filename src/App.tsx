@@ -83,7 +83,12 @@ function App() {
             data: cursorData,
           }
         )
-      )
+      ),
+      {
+        disableCorePlugins: {
+          history: true
+        }
+      }
     );
   }, [provider.awareness, sharedTypeContent]);
 
