@@ -1,25 +1,17 @@
-html {
-  font-family: 'Roboto', sans-serif;
-  line-height: 1.4;
+/* ./src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body {
+  height: 100%;
 }
 
 body {
   margin: 0;
 }
 
-td {
-  border: 1px solid;
-}
-
 #root {
-  padding: 30px;
-}
-
-.MuiSvgIcon-root {
-  font-size: 18px !important;
-}
-
-.tippy-box[data-theme~='tomato'] {
-  background-color: tomato;
-  color: yellow;
+  height: 100%;
+  min-height: 100vh;
 }

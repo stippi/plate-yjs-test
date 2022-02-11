@@ -23,7 +23,7 @@ import randomColor from 'randomcolor'
 import { AutoScaling } from './AutoScaling'
 import { RemoteCursorOverlay } from './RemoteCursorOverlay'
 
-const WEBSOCKET_ENDPOINT = 'ws://localhost:1234'
+const WEBSOCKET_ENDPOINT = 'wss://dq-websocket-server.herokuapp.com'//'ws://localhost:1234'
 
 function App() {
   const editableProps = {
@@ -52,7 +52,7 @@ function App() {
       randomColor({
         luminosity: "dark",
         format: "rgba",
-        alpha: 0.8,
+        alpha: 1,
       }),
     []
   );
@@ -124,15 +124,25 @@ function App() {
   const toolBarHeight = 50
   const documentWidth = 8.5 * 96
 
+  const renderEditable = (editable: React.ReactNode) => {
+    return (
+      <RemoteCursorOverlay className="flex justify-center my-32 mx-10">
+        {editable}
+      </RemoteCursorOverlay>
+    )
+  };
+
   return (
-        <Plate
-          id="1"
-          editor={editor}
-          value={value}
-          onChange={setValue}
-          editableProps={editableProps}
-          initialValue={initialValue}
-        />
+    <Plate
+      id="1"
+      editor={editor}
+      value={value}
+      onChange={setValue}
+      editableProps={editableProps}
+      initialValue={initialValue}
+      renderEditable={renderEditable}
+    >
+    </Plate>
   );
 }
 
